@@ -31,7 +31,7 @@ add reposetory to your composer file
 
 ```js
 "require": {
-    "karamqubsi/phpass-laravel": "*"
+    "karamqubsi/phpass-laravel": "^2.0"
 }
 ```
 
