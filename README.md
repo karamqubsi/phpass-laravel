@@ -1,20 +1,37 @@
-#PHPass Hashing integration for Laravel 5
+# PHPass Hashing integration for Laravel 8
 
-[![Build Status](https://travis-ci.org/ksungcaya/phpass-laravel.svg?branch=master)](https://travis-ci.org/ksungcaya/phpass-laravel)
-[![HHVM Status](http://hhvm.h4cc.de/badge/ksungcaya/phpass-laravel.svg)](http://hhvm.h4cc.de/package/ksungcaya/phpass-laravel)
 
-A PHPass Hasher integration to Laravel 5. This package overrides the default Bycrypt Hasher of Laravel 
+This is a fork from [phpass-laravel for Larael 5](https://github.com/ksungcaya/phpass-laravel)
+
+I updated it to work with Laravel 8. 
+
+
+A PHPass Hasher integration to Laravel 8.
+
+This package overrides the default Bycrypt Hasher of Laravel 
 and uses the [Phpass](http://openwall.com/phpass/) Library from Openwall for password hashing and checking methods.
 
-If you are using Laravel 4, try out the old implementation [here](https://github.com/ksungcaya/phpass).
 
 ## Installation
 
 Install package through Composer.
 
+add reposetory to your composer file 
+
+```json
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/karamqubsi/phpass-laravel"
+        }
+    ],
+
+```
+
+
 ```js
 "require": {
-    "ksungcaya/phpass-laravel": "~1.0"
+    "karamqubsi/phpass-laravel": "*"
 }
 ```
 
@@ -23,13 +40,24 @@ Then run composer update
 $ composer update
 ```
 
-Update `config/app.php` and include a reference to this package's service provider in the providers array.
+Update `config/app.php`
+
+Repleace this line : 
 
 ```php
-'providers' => [
-    Sungcaya\Phpass\PhpassHashServiceProvider::class
-]
+Illuminate\Hashing\HashServiceProvider::class
 ```
+with :
+```php
+    Karamqubsi\Phpass\PhpassHashServiceProvider::class
+```
+
+Update `config/hashing.php`
+
+```php
+    'driver' => 'phpass',
+```
+
 
 ## Usage
 
@@ -42,4 +70,4 @@ Hash::check('secret', $hashedPassword);
 
 ## That's it!
 
-Please refer to Laravel documentation on [Hashing](http://laravel.com/docs/5.1/hashing) to know more about the Hash methods.
+Please refer to Laravel documentation on [Hashing](https://laravel.com/docs/8.x/hashing) to know more about the Hash methods.
