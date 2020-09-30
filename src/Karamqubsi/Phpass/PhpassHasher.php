@@ -1,9 +1,10 @@
-<?php namespace Sungcaya\Phpass;
+<?php namespace Karamqubsi\Phpass;
 
 use Hautelook\Phpass\PasswordHash;
 use Illuminate\Contracts\Hashing\Hasher as HasherContract;
+use Illuminate\Hashing\AbstractHasher;
 
-class PhpassHasher implements HasherContract
+class PhpassHasher extends AbstractHasher implements  HasherContract
 {
     /**
      * @var PasswordHash

@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Sungcaya\Phpass;
+namespace spec\Karamqubsi\Phpass;
 
 use Hautelook\Phpass\PasswordHash;
 use PhpSpec\ObjectBehavior;
@@ -15,7 +15,7 @@ class PhpassHasherSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Sungcaya\Phpass\PhpassHasher');
+        $this->shouldHaveType('Karamqubsi\Phpass\PhpassHasher');
     }
 
     function it_hashes_a_string_password(PasswordHash $hasher)
